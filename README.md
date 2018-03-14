@@ -9,7 +9,7 @@ See live here [https://getninjas.github.io/media-query-js](https://getninjas.git
 
 ### Install
 
-`npm i media-query-js  --save`
+`npm i media-query-js --save`
 
 `yarn add media-query-js`
 
