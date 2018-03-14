@@ -1,4 +1,5 @@
 # Media Query JS
+[![Build Status](https://semaphoreci.com/api/v1/iondrimba/media-query-js-4/branches/master/badge.svg)](https://semaphoreci.com/iondrimba/media-query-js-4)
 
 Helper to check a media query on JS
 * This script appends has methods to check the size of screen.
