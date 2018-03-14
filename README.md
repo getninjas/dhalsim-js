@@ -21,6 +21,8 @@ See live here [https://getninjas.github.io/media-query-js](https://getninjas.git
 
 ### Usage
 
+After install, you will have to add the stylesheet (dist/media-query.css) to your page via link tag or import it to your existing style manifest.
+
 You can use it via:
 * GLOBAL variabel
 * CommonJs
