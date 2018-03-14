@@ -1,0 +1,68 @@
+{
+  "name": "media-query-js",
+  "version": "2.0.0",
+  "description": "Wrapping Google tagmanager and adding some helpers to him",
+  "main": "dist/media-query-js.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getninjas/media-query-js.git"
+  },
+  "keywords": [
+    "google",
+    "tagmanager"
+  ],
+  "author": "GetNinjas <tech@getninjas.com.br> https://www.getninjas.com.br",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/getninjas/media-query-js/issues"
+  },
+  "homepage": "https://github.com/getninjas/media-query-js#readme",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test && karma start",
+    "version": "npm run build:js:prod && git add -A dist",
+    "postversion": "git push && git push --tags",
+    "config": "npm config set progress=false && npm config set git-tag-version=true",
+    "clear": "rm -rf ./build/*",
+    "lint": "eslint -c .eslintrc.json src/*.js",
+    "build:js:prod": "cross-env BABEL_ENV=production babel src/index.js -o dist/index.min.js",
+    "build:js": "babel src -d dist",
+    "demo": "browser-sync start -s --index 'index.html' --startPath index.html",
+    "build:dev": "npm run build:js",
+    "watch:js": "onchange \"src/*.{js}\" -p 50 -i -- npm-run-all -p build:js lint --silent",
+    "watch": "npm-run-all -p watch:js",
+    "start": "npm run clear && FORCE_COLOR=1 npm run watch"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-airbnb": "^2.4.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-minify": "^0.2.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.4.0",
+    "cross-env": "^5.0.5",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-config-getninjas": "^2.3.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.7.0",
+    "istanbul-instrumenter-loader": "^3.0.0",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-babel-preprocessor": "^7.0.0",
+    "karma-browserify": "^5.1.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-fixture": "^0.2.6",
+    "karma-html2js-preprocessor": "^1.1.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-spec-reporter": "0.0.31",
+    "karma-threshold-reporter": "^0.1.15",
+    "npm-run-all": "^3.1.2",
+    "onchange": "^3.2.1",
+    "prismjs": "^1.8.1"
+  }
+}
