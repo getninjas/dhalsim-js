@@ -40,18 +40,8 @@ const karmaConfig = function (conf) {
     coverageReporter: {
       dir: 'coverage',
       reporters: [{
-        type: 'text',
-      },
-      {
-        type: 'text-summary',
-      },
-      {
-        type: 'html',
-        subdir: 'report-html',
-      },
-      {
         type: 'lcov',
-        subdir: 'report-lcov',
+        subdir: '/',
       },
       ],
     },
