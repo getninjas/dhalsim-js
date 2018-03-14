@@ -1,15 +1,16 @@
 {
   "name": "media-query-js",
-  "version": "2.0.0",
-  "description": "Wrapping Google tagmanager and adding some helpers to him",
+  "version": "1.0.0",
+  "description": "Media Query helper to check breakpoints via javascript",
   "main": "dist/media-query-js.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/getninjas/media-query-js.git"
   },
   "keywords": [
-    "google",
-    "tagmanager"
+    "breakpoints",
+    "css",
+    "media-query"
   ],
   "author": "GetNinjas <tech@getninjas.com.br> https://www.getninjas.com.br",
   "license": "MIT",
@@ -19,11 +20,12 @@
   "homepage": "https://github.com/getninjas/media-query-js#readme",
   "scripts": {
     "test": "cross-env NODE_ENV=test && karma start",
-    "version": "npm run build:js:prod && git add -A dist",
+    "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags",
     "config": "npm config set progress=false && npm config set git-tag-version=true",
     "clear": "rm -rf ./build/*",
     "lint": "eslint -c .eslintrc.json src/*.js",
+    "build": "npm run build:js && npm run build:js:prod",
     "build:js:prod": "cross-env BABEL_ENV=production babel src/media-query.js -o dist/media-query.min.js && npm run copy",
     "copy": "cp ./src/media-query.css ./dist/media-query.css",
     "build:js": "babel src -d dist",
