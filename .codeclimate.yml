@@ -1,0 +1,7 @@
+exclude_patterns:
+- "spec/"
+- "dist/"
+- "node_modules"
+- "**/node_modules/"
+- "**/spec/"
+- "karma.conf.js"
