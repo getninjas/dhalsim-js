@@ -1,3 +1,17 @@
 {
-  presets: ['env']
+  "presets":[
+    [ "env", {
+      "modules": "umd"
+    }]
+  ],
+  "plugins": [
+    "transform-object-assign"
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        "minify"
+      ]
+    }
+  }
 }
