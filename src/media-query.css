@@ -10,8 +10,6 @@
  *
  * ```
  *
- * See javascripts/modularized/media_query_content.js to more details
- *
 **/
 
 body:before {
@@ -19,19 +17,20 @@ body:before {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   body:before {
     content: 'tablet';
   }
 }
-@media (max-width: 960px) {
+
+@media (min-width: 960px) {
   body:before {
     content: 'desktop';
   }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   body:before {
-    content: 'tablet';
+    content: 'wide';
   }
 }
