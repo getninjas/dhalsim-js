@@ -8,7 +8,7 @@ Helper to check a media query on JS
 
 ### Documentation
 
-See live here [https://getninjas.github.io/dhalsim-js](https://getninjas.github.io/dhalsim-js)
+See live here [https://getninjas.github.io/dhalsim-js/](https://getninjas.github.io/dhalsim-js/)
 
 ### Install
 
