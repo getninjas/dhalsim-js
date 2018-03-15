@@ -1,0 +1,36 @@
+/*
+ * Puting content names on body
+ *
+ * This technique is used to interact with JavaScript, using getComputedStyle.
+ *
+ * ```
+ *   var breakpoint = window.getComputedStyle(
+ *     $('body')[0], ':before',
+ *   ).getPropertyValue('content').replace(/"/g, '');
+ *
+ * ```
+ *
+**/
+
+body:before {
+  content: 'smartphone';
+  display: none;
+}
+
+@media (min-width: 768px) {
+  body:before {
+    content: 'tablet';
+  }
+}
+
+@media (min-width: 960px) {
+  body:before {
+    content: 'desktop';
+  }
+}
+
+@media (min-width: 1200px) {
+  body:before {
+    content: 'wide';
+  }
+}

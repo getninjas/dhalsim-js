@@ -1,5 +1,3 @@
-import '../scss/index.scss';
-
 const defaultMediaQueryOptions = {
   breakingPointValue: '',
 };

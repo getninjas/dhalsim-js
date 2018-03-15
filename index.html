@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/themes/prism.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/plugins/line-numbers/prism-line-numbers.css"
+    data-noprefix />
+  <link href="demo.css" rel="stylesheet" />
+  <link href="./dist/media-query.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/plugins/line-numbers/prism-line-numbers.js"></script>
+  <script src="./dist/media-query.min.js"></script>
+</head>
+
+<body>
+  <h1>MediaQuery</h1>
+  <br>
+  <div class="title">
+    <h3>To use this module, you need to import both css and js files from the "dist/" folder</h3>
+  </div>
+  <br>
+
+  <div class="title">
+    <h3>Breakpoints</h3>
+  </div>
+  <pre>
+    <code class="language-javascript line-numbers">mediaQuery.isMobile();
+    // use breakpoint < 768px
+
+    mediaQuery.isTablet();
+    // use breakpoint >= 768px
+
+    mediaQuery.isDesktop();
+    // use breakpoint >= 960px
+
+    mediaQuery.isWide();
+    // use breakpoint >= 1200px
+
+    mediaQuery.beyondTablet();
+    // use >= 900px || >= 1200px
+
+    mediaQuery.beyondMobile();
+    // use >= 768px || (>= 900px || >= 1200px)</code></pre>
+  <br>
+  <div class="title">
+    <h3>Global</h3>
+  </div>
+
+  <pre>
+    <code class="language-javascript line-numbers">var mediaQuery = new window.mediaQuery.default();
+
+    mediaQuery.isMobile();</code></pre>
+  <br>
+
+  <div class="title">
+    <h3>Init (ES6)</h3>
+  </div>
+
+  <pre>
+  <code class="language-javascript line-numbers">import MediaQuery from 'media-query';
+
+  const mediaQuery = new MediaQuery();
+
+  mediaQuery.isMobile();</code></pre>
+  <br>
+
+  <div class="title">
+    <h3>Init (CommonJs)</h3>
+  </div>
+
+  <pre>
+    <code class="language-javascript line-numbers">var MediaQuery = require('media-query');
+
+    const mediaQuery = new MediaQuery();
+
+    mediaQuery.isMobile();</code></pre>
+
+    <br>
+  <div class="title">
+    <h3>Init (AMD)</h3>
+  </div>
+
+  <pre>
+    <code class="language-javascript line-numbers">define(['media-query'], function(MediaQuery){
+      var mediaQuery = new MediaQuery();
+
+      mediaQuery.isMobile();
+    });</code></pre>
+</body>
+
+</html>
