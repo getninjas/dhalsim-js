@@ -1,11 +1,11 @@
 {
-  "name": "media-query-js",
+  "name": "dhalsim-js",
   "version": "1.0.0",
   "description": "Media Query helper to check breakpoints via JavaScript",
-  "main": "dist/media-query-js.js",
+  "main": "dist/dhalsim.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/getninjas/media-query-js.git"
+    "url": "git+https://github.com/getninjas/dhalsim-js.git"
   },
   "keywords": [
     "breakpoints",
@@ -15,9 +15,9 @@
   "author": "GetNinjas <tech@getninjas.com.br> https://www.getninjas.com.br",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/getninjas/media-query-js/issues"
+    "url": "https://github.com/getninjas/dhalsim-js/issues"
   },
-  "homepage": "https://github.com/getninjas/media-query-js#readme",
+  "homepage": "https://github.com/getninjas/dhalsim-js#readme",
   "scripts": {
     "test": "cross-env NODE_ENV=test && karma start",
     "version": "npm run build && git add -A dist",
@@ -27,9 +27,9 @@
     "lint": "eslint -c .eslintrc.json src/*.js",
     "build:babel": "babel src -d dist",
     "build:prod": "npm run build:babel && npm run build:js:prod",
-    "build:js:prod": "cross-env BABEL_ENV=production babel src/media-query.js -o dist/media-query.min.js && npm run copy",
+    "build:js:prod": "cross-env BABEL_ENV=production babel src/dhalsim.js -o dist/dhalsim.min.js && npm run copy",
     "build:dev": "npm run build:babel",
-    "copy": "cp ./src/media-query.css ./dist/media-query.css",
+    "copy": "cp ./src/dhalsim.css ./dist/dhalsim.css",
     "demo": "browser-sync start -s --index 'index.html' --startPath index.html",
     "watch:js": "onchange \"src/*.{js}\" -p 50 -i -- npm-run-all -p build:babel lint --silent",
     "watch": "npm-run-all -p watch:js",

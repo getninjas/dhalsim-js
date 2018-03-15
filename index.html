@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/plugins/line-numbers/prism-line-numbers.css"
     data-noprefix />
   <link href="demo.css" rel="stylesheet" />
-  <link href="./dist/media-query.css" rel="stylesheet" />
+  <link href="./dist/dhalsim.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/prism.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.1/plugins/line-numbers/prism-line-numbers.js"></script>
-  <script src="./dist/media-query.min.js"></script>
+  <script src="./dist/dhalsim.min.js"></script>
 </head>
 
 <body>
-  <h1>MediaQuery</h1>
+  <h1>Dhalsim</h1>
   <br>
   <div class="title">
     <h3>To use this module, you need to import both css and js files from the "dist/" folder</h3>
@@ -29,22 +29,22 @@
     <h3>Breakpoints</h3>
   </div>
   <pre>
-    <code class="language-javascript line-numbers">mediaQuery.isMobile();
+    <code class="language-javascript line-numbers">dhalsim.isMobile();
     // use breakpoint < 768px
 
-    mediaQuery.isTablet();
+    dhalsim.isTablet();
     // use breakpoint >= 768px
 
-    mediaQuery.isDesktop();
+    dhalsim.isDesktop();
     // use breakpoint >= 960px
 
-    mediaQuery.isWide();
+    dhalsim.isWide();
     // use breakpoint >= 1200px
 
-    mediaQuery.beyondTablet();
+    dhalsim.beyondTablet();
     // use >= 900px || >= 1200px
 
-    mediaQuery.beyondMobile();
+    dhalsim.beyondMobile();
     // use >= 768px || (>= 900px || >= 1200px)</code></pre>
   <br>
   <div class="title">
@@ -52,9 +52,9 @@
   </div>
 
   <pre>
-    <code class="language-javascript line-numbers">var mediaQuery = new window.mediaQuery.default();
+    <code class="language-javascript line-numbers">var dhalsim = new window.dhalsim.default();
 
-    mediaQuery.isMobile();</code></pre>
+    dhalsim.isMobile();</code></pre>
   <br>
 
   <div class="title">
@@ -62,11 +62,11 @@
   </div>
 
   <pre>
-  <code class="language-javascript line-numbers">import MediaQuery from 'media-query';
+  <code class="language-javascript line-numbers">import dhalsim from 'dhalsim';
 
-  const mediaQuery = new MediaQuery();
+  const dhalsim = new Dhalsim();
 
-  mediaQuery.isMobile();</code></pre>
+  dhalsim.isMobile();</code></pre>
   <br>
 
   <div class="title">
@@ -74,11 +74,11 @@
   </div>
 
   <pre>
-    <code class="language-javascript line-numbers">var MediaQuery = require('media-query');
+    <code class="language-javascript line-numbers">var Dhalsim = require('dhalsim');
 
-    const mediaQuery = new MediaQuery();
+    const dhalsim = new Dhalsim();
 
-    mediaQuery.isMobile();</code></pre>
+    dhalsim.isMobile();</code></pre>
 
     <br>
   <div class="title">
@@ -87,9 +87,9 @@
 
   <pre>
     <code class="language-javascript line-numbers">define(['media-query'], function(MediaQuery){
-      var mediaQuery = new MediaQuery();
+      var dhalsim = new Dhalsim();
 
-      mediaQuery.isMobile();
+      dhalsim.isMobile();
     });</code></pre>
 </body>
 

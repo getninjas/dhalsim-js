@@ -1,10 +1,10 @@
-const defaultMediaQueryOptions = {
+const defaultDhalsimOptions = {
   breakingPointValue: '',
 };
 
-export default class MediaQuery {
+export default class Dhalsim {
   constructor(options) {
-    const defaultOptions = Object.assign({}, defaultMediaQueryOptions, options);
+    const defaultOptions = Object.assign({}, defaultDhalsimOptions, options);
     this.breakingPointValue = defaultOptions.breakingPointValue;
 
     this.body = document.getElementsByTagName('body')[0];

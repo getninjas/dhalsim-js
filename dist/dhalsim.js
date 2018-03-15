@@ -8,7 +8,7 @@
       exports: {}
     };
     factory(mod.exports);
-    global.mediaQuery = mod.exports;
+    global.dhalsim = mod.exports;
   }
 })(this, function (exports) {
   'use strict';
@@ -55,21 +55,21 @@
     };
   }();
 
-  var defaultMediaQueryOptions = {
+  var defaultDhalsimOptions = {
     breakingPointValue: ''
   };
 
-  var MediaQuery = function () {
-    function MediaQuery(options) {
-      _classCallCheck(this, MediaQuery);
+  var Dhalsim = function () {
+    function Dhalsim(options) {
+      _classCallCheck(this, Dhalsim);
 
-      var defaultOptions = _extends({}, defaultMediaQueryOptions, options);
+      var defaultOptions = _extends({}, defaultDhalsimOptions, options);
       this.breakingPointValue = defaultOptions.breakingPointValue;
 
       this.body = document.getElementsByTagName('body')[0];
     }
 
-    _createClass(MediaQuery, [{
+    _createClass(Dhalsim, [{
       key: 'breakpoint',
       value: function breakpoint() {
         this.breakpointValue = window.getComputedStyle(this.body, ':before').getPropertyValue('content').replace(/"/g, '');
@@ -108,8 +108,8 @@
       }
     }]);
 
-    return MediaQuery;
+    return Dhalsim;
   }();
 
-  exports.default = MediaQuery;
+  exports.default = Dhalsim;
 });
