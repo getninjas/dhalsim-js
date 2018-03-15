@@ -1,4 +1,4 @@
-import MediaQueryContent from '../src/media-query';
+import MediaQueryContent from '../src/dhalsim';
 
 describe('MediaQueryContent', () => {
   let mediaQueryContent;
