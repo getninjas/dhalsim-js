@@ -1,1 +1,6 @@
-../dotfiles/.eslintrc.json
+{
+  "extends": "getninjas",
+  "globals": {
+    "__html__": true
+  }
+}
