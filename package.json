@@ -1,7 +1,7 @@
 {
   "name": "media-query-js",
   "version": "1.0.0",
-  "description": "Media Query helper to check breakpoints via javascript",
+  "description": "Media Query helper to check breakpoints via JavaScript",
   "main": "dist/media-query-js.js",
   "repository": {
     "type": "git",
