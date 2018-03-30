@@ -56,7 +56,10 @@
   }();
 
   var defaultDhalsimOptions = {
-    breakingPointValue: ''
+    breakingPointValue: '',
+    tablet: '768px',
+    desktop: '960px',
+    wide: '1200px'
   };
 
   var Dhalsim = function () {
@@ -66,10 +69,30 @@
       var defaultOptions = _extends({}, defaultDhalsimOptions, options);
       this.breakingPointValue = defaultOptions.breakingPointValue;
 
+      this.tablet = defaultOptions.tablet;
+      this.desktop = defaultOptions.desktop;
+      this.wide = defaultOptions.wide;
+
       this.body = document.getElementsByTagName('body')[0];
     }
 
     _createClass(Dhalsim, [{
+      key: 'init',
+      value: function init() {
+        this.renderCSS();
+      }
+    }, {
+      key: 'renderCSS',
+      value: function renderCSS() {
+        var css = '\n      body:before {\n        content: \'smartphone\';\n        display: none;\n      }\n\n      @media (min-width: ' + this.tablet + ') {\n        body:before {\n          content: \'tablet\';\n        }\n      }\n\n      @media (min-width: ' + this.desktop + ') {\n        body:before {\n          content: \'desktop\';\n        }\n      }\n\n      @media (min-width: ' + this.wide + ') {\n        body:before {\n          content: \'wide\';\n        }\n      }\n    ';
+
+        var head = document.getElementsByTagName('head')[0];
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        style.appendChild(document.createTextNode(css));
+        head.appendChild(style);
+      }
+    }, {
       key: 'breakpoint',
       value: function breakpoint() {
         this.breakpointValue = window.getComputedStyle(this.body, ':before').getPropertyValue('content').replace(/"/g, '');
