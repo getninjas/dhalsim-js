@@ -88,36 +88,30 @@
 
         var head = document.getElementsByTagName('head')[0];
         var style = document.createElement('style');
+
         style.type = 'text/css';
         style.appendChild(document.createTextNode(css));
         head.appendChild(style);
       }
     }, {
-      key: 'breakpoint',
-      value: function breakpoint() {
-        this.breakpointValue = window.getComputedStyle(this.body, ':before').getPropertyValue('content').replace(/"/g, '');
-
-        return this.breakpointValue;
-      }
-    }, {
       key: 'isMobile',
       value: function isMobile() {
-        return this.breakpoint() === 'smartphone';
+        return this.breakpoint === 'smartphone';
       }
     }, {
       key: 'isTablet',
       value: function isTablet() {
-        return this.breakpoint() === 'tablet';
+        return this.breakpoint === 'tablet';
       }
     }, {
       key: 'isDesktop',
       value: function isDesktop() {
-        return this.breakpoint() === 'desktop';
+        return this.breakpoint === 'desktop';
       }
     }, {
       key: 'isWide',
       value: function isWide() {
-        return this.breakpoint() === 'wide';
+        return this.breakpoint === 'wide';
       }
     }, {
       key: 'beyondTablet',
@@ -128,6 +122,13 @@
       key: 'beyondMobile',
       value: function beyondMobile() {
         return this.isTablet() || this.beyondTablet();
+      }
+    }, {
+      key: 'breakpoint',
+      get: function get() {
+        this.breakpointValue = window.getComputedStyle(this.body, ':before').getPropertyValue('content').replace(/"/g, '');
+
+        return this.breakpointValue;
       }
     }]);
 
