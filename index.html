@@ -20,7 +20,7 @@
   <h1>Dhalsim</h1>
   <br>
   <div class="title">
-    <h3>To use this module, you need to import both css and js files from the "dist/" folder</h3>
+    <h3>To use this module, you need to js files from the "dist/" folder</h3>
   </div>
   <br>
 
@@ -28,7 +28,8 @@
     <h3>Breakpoints</h3>
   </div>
   <pre>
-    <code class="language-javascript line-numbers">dhalsim.isMobile();
+    <code class="language-javascript line-numbers">dhalsim.init();
+    dhalsim.isMobile();
     // use breakpoint < 768px
 
     dhalsim.isTablet();
@@ -52,6 +53,7 @@
 
   <pre>
     <code class="language-javascript line-numbers">var dhalsim = new window.dhalsim.default();
+    dhalsim.init();
 
     dhalsim.isMobile();</code></pre>
   <br>
@@ -64,6 +66,7 @@
   <code class="language-javascript line-numbers">import dhalsim from 'dhalsim-js';
 
   const dhalsim = new Dhalsim();
+  dhalsim.init();
 
   dhalsim.isMobile();</code></pre>
   <br>
@@ -76,6 +79,7 @@
     <code class="language-javascript line-numbers">var Dhalsim = require('dhalsim-js');
 
     const dhalsim = new Dhalsim();
+    dhalsim.init();
 
     dhalsim.isMobile();</code></pre>
 
@@ -87,6 +91,7 @@
   <pre>
     <code class="language-javascript line-numbers">define(['dhalsim-js'], function(Dhalsim){
       var dhalsim = new Dhalsim();
+      dhalsim.init();
 
       dhalsim.isMobile();
     });</code></pre>
