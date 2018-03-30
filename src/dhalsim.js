@@ -55,7 +55,7 @@ export default class Dhalsim {
     head.appendChild(style);
   }
 
-  breakpoint() {
+  get breakpoint() {
     this.breakpointValue = window
       .getComputedStyle(this.body, ':before')
       .getPropertyValue('content')
@@ -65,19 +65,19 @@ export default class Dhalsim {
   }
 
   isMobile() {
-    return this.breakpoint() === 'smartphone';
+    return this.breakpoint === 'smartphone';
   }
 
   isTablet() {
-    return this.breakpoint() === 'tablet';
+    return this.breakpoint === 'tablet';
   }
 
   isDesktop() {
-    return this.breakpoint() === 'desktop';
+    return this.breakpoint === 'desktop';
   }
 
   isWide() {
-    return this.breakpoint() === 'wide';
+    return this.breakpoint === 'wide';
   }
 
   beyondTablet() {
