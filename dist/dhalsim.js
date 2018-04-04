@@ -66,12 +66,7 @@
     function Dhalsim(options) {
       _classCallCheck(this, Dhalsim);
 
-      var defaultOptions = _extends({}, defaultDhalsimOptions, options);
-      this.breakingPointValue = defaultOptions.breakingPointValue;
-
-      this.tablet = defaultOptions.tablet;
-      this.desktop = defaultOptions.desktop;
-      this.wide = defaultOptions.wide;
+      _extends(this, defaultDhalsimOptions, options);
 
       this.body = document.getElementsByTagName('body')[0];
     }
