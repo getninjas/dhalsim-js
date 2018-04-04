@@ -31,13 +31,14 @@ See live here [https://getninjas.github.io/dhalsim-js/](https://getninjas.github
 
 ### Usage
 
-After install, you will have to add the stylesheet (dist/media-query.css) to your page via link tag or import it to your existing style manifest.
-
 You can use it via:
 * GLOBAL variable
 * CommonJs
 * AMD
 * ES6 Module
+
+#### To init module
+* init();
 
 #### Methods
 * isMobile();
