@@ -5,14 +5,14 @@ describe('MediaQueryContent', () => {
 
   describe('constructor', () => {
     it('define default options', () => {
-      mediaQueryContent = new MediaQueryContent();
-
       const options = {
         breakingPointValue: '',
         tablet: '768px',
         desktop: '960px',
         wide: '1200px',
       };
+
+      mediaQueryContent = new MediaQueryContent();
 
       expect(mediaQueryContent.breakingPointValue).toBe(options.breakingPointValue);
       expect(mediaQueryContent.tablet).toBe(options.tablet);
@@ -37,8 +37,8 @@ describe('MediaQueryContent', () => {
     });
 
     it('call renderCSS', () => {
-      mediaQueryContent = new MediaQueryContent().init();
       const element = document.querySelector('style');
+      mediaQueryContent = new MediaQueryContent().init();
       expect(element).not.toBeUndefined();
     });
   });
