@@ -7,12 +7,7 @@ const defaultDhalsimOptions = {
 
 export default class Dhalsim {
   constructor(options) {
-    const defaultOptions = Object.assign({}, defaultDhalsimOptions, options);
-    this.breakingPointValue = defaultOptions.breakingPointValue;
-
-    this.tablet = defaultOptions.tablet;
-    this.desktop = defaultOptions.desktop;
-    this.wide = defaultOptions.wide;
+    Object.assign(this, defaultDhalsimOptions, options);
 
     this.body = document.getElementsByTagName('body')[0];
   }
