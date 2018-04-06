@@ -56,45 +56,57 @@
   }();
 
   var defaultDhalsimOptions = {
-    breakingPointValue: ''
+    breakingPointValue: '',
+    tablet: '768px',
+    desktop: '960px',
+    wide: '1200px'
   };
 
   var Dhalsim = function () {
     function Dhalsim(options) {
       _classCallCheck(this, Dhalsim);
 
-      var defaultOptions = _extends({}, defaultDhalsimOptions, options);
-      this.breakingPointValue = defaultOptions.breakingPointValue;
+      _extends(this, defaultDhalsimOptions, options);
 
       this.body = document.getElementsByTagName('body')[0];
     }
 
     _createClass(Dhalsim, [{
-      key: 'breakpoint',
-      value: function breakpoint() {
-        this.breakpointValue = window.getComputedStyle(this.body, ':before').getPropertyValue('content').replace(/"/g, '');
+      key: 'init',
+      value: function init() {
+        this.renderCSS();
+      }
+    }, {
+      key: 'renderCSS',
+      value: function renderCSS() {
+        var css = '\n      body:before {\n        content: \'smartphone\';\n        display: none;\n      }\n\n      @media (min-width: ' + this.tablet + ') {\n        body:before {\n          content: \'tablet\';\n        }\n      }\n\n      @media (min-width: ' + this.desktop + ') {\n        body:before {\n          content: \'desktop\';\n        }\n      }\n\n      @media (min-width: ' + this.wide + ') {\n        body:before {\n          content: \'wide\';\n        }\n      }\n    ';
 
-        return this.breakpointValue;
+        var head = document.getElementsByTagName('head')[0];
+        var style = document.createElement('style');
+
+        style.type = 'text/css';
+        style.appendChild(document.createTextNode(css));
+        head.appendChild(style);
       }
     }, {
       key: 'isMobile',
       value: function isMobile() {
-        return this.breakpoint() === 'smartphone';
+        return this.breakpoint === 'smartphone';
       }
     }, {
       key: 'isTablet',
       value: function isTablet() {
-        return this.breakpoint() === 'tablet';
+        return this.breakpoint === 'tablet';
       }
     }, {
       key: 'isDesktop',
       value: function isDesktop() {
-        return this.breakpoint() === 'desktop';
+        return this.breakpoint === 'desktop';
       }
     }, {
       key: 'isWide',
       value: function isWide() {
-        return this.breakpoint() === 'wide';
+        return this.breakpoint === 'wide';
       }
     }, {
       key: 'beyondTablet',
@@ -105,6 +117,13 @@
       key: 'beyondMobile',
       value: function beyondMobile() {
         return this.isTablet() || this.beyondTablet();
+      }
+    }, {
+      key: 'breakpoint',
+      get: function get() {
+        this.breakpointValue = window.getComputedStyle(this.body, ':before').getPropertyValue('content').replace(/"/g, '');
+
+        return this.breakpointValue;
       }
     }]);
 
