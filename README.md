@@ -48,7 +48,7 @@ You can use it via:
 * beyondTablet();
 * beyondMobile();
 
-#### Release process
+### Release process
 We are using `npm version` to generate our releases. There are 3 kind of releases generally used: major, minor and patch. See the http://semver.org/ for more details.
 
 The process is:
