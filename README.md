@@ -1,5 +1,5 @@
 # Dhalsim
-[![Build Status](https://semaphoreci.com/api/v1/iondrimba/dhalsim-js-2/branches/master/badge.svg)](https://semaphoreci.com/iondrimba/dhalsim-js-2)
+[![Build Status](https://travis-ci.org/getninjas/dhalsim-js.svg?branch=master)](https://travis-ci.org/getninjas/dhalsim-js)
 [![Maintainability](https://api.codeclimate.com/v1/badges/fd960e86c8b6aaf6b6d7/maintainability)](https://codeclimate.com/github/getninjas/dhalsim-js/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/fd960e86c8b6aaf6b6d7/test_coverage)](https://codeclimate.com/github/getninjas/dhalsim-js/test_coverage)
 
