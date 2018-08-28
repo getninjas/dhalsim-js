@@ -1,7 +1,7 @@
 # Dhalsim
 [![Build Status](https://travis-ci.org/getninjas/dhalsim-js.svg?branch=master)](https://travis-ci.org/getninjas/dhalsim-js)
-[![Maintainability](https://api.codeclimate.com/v1/badges/fd960e86c8b6aaf6b6d7/maintainability)](https://codeclimate.com/github/getninjas/dhalsim-js/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/fd960e86c8b6aaf6b6d7/test_coverage)](https://codeclimate.com/github/getninjas/dhalsim-js/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/56d8af4515d3676174d1/maintainability)](https://codeclimate.com/github/getninjas/dhalsim-js/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/56d8af4515d3676174d1/test_coverage)](https://codeclimate.com/github/getninjas/dhalsim-js/test_coverage)
 
 Helper to check a media query on JS
 * This script appends has methods to check the size of screen.
