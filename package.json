@@ -48,7 +48,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-config-getninjas": "^2.3.0",
+    "eslint-config-getninjas": "^4.0.3",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.16.0",
     "istanbul-instrumenter-loader": "^3.0.1",
