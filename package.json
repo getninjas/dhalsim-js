@@ -45,7 +45,7 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.24.7",
     "browserify": "^14.4.0",
-    "cross-env": "^5.0.5",
+    "cross-env": "^5.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-config-getninjas": "^2.3.0",
