@@ -47,7 +47,7 @@
     "browserify": "^14.4.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.13.0",
-    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-getninjas": "^4.0.3",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.16.0",
