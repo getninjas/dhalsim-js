@@ -1,6 +1,8 @@
-import MediaQueryContent from '../src/dhalsim';
+import MediaQueryContent from '../src/dhalsim'
+import fs from 'fs'
 
 describe('MediaQueryContent', () => {
+  const fixturesPath = `${__dirname}/fixtures`
   let mediaQueryContent;
 
   describe('constructor', () => {
@@ -33,7 +35,7 @@ describe('MediaQueryContent', () => {
 
   describe('renderCSS', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/renderCss.html'];
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/renderCSS.html`)
     });
 
     it('call renderCSS', () => {
@@ -45,7 +47,15 @@ describe('MediaQueryContent', () => {
 
   describe('.breakpoint', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/smartphone.html'];
+      Object.defineProperty(window, 'getComputedStyle', {
+        value: () => ({
+            getPropertyValue: (prop) => {
+                return 'smartphone';
+            }
+        })
+      });
+
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/smartphone.html`);
       mediaQueryContent = new MediaQueryContent();
     });
 
@@ -62,7 +72,15 @@ describe('MediaQueryContent', () => {
 
   describe('.isMobile', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/smartphone.html'];
+      Object.defineProperty(window, 'getComputedStyle', {
+        value: () => ({
+            getPropertyValue: (prop) => {
+                return 'smartphone';
+            }
+        })
+      });
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/smartphone.html`);
+      mediaQueryContent = new MediaQueryContent();
     });
 
     afterEach(() => {
@@ -79,7 +97,15 @@ describe('MediaQueryContent', () => {
 
   describe('.isTablet', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/tablet.html'];
+      Object.defineProperty(window, 'getComputedStyle', {
+        value: () => ({
+            getPropertyValue: (prop) => {
+                return 'tablet';
+            }
+        })
+      });
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/tablet.html`);
+      mediaQueryContent = new MediaQueryContent();
     });
 
     afterEach(() => {
@@ -96,7 +122,16 @@ describe('MediaQueryContent', () => {
 
   describe('.isDesktop', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/desktop.html'];
+      Object.defineProperty(window, 'getComputedStyle', {
+        value: () => ({
+            getPropertyValue: (prop) => {
+                return 'desktop';
+            }
+        })
+      });
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/desktop.html`);
+      mediaQueryContent = new MediaQueryContent();
+
     });
 
     afterEach(() => {
@@ -113,7 +148,15 @@ describe('MediaQueryContent', () => {
 
   describe('.isWide', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/wide.html'];
+      Object.defineProperty(window, 'getComputedStyle', {
+        value: () => ({
+            getPropertyValue: (prop) => {
+                return 'wide';
+            }
+        })
+      });
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/wide.html`);
+      mediaQueryContent = new MediaQueryContent();
     });
 
     afterEach(() => {
@@ -130,16 +173,23 @@ describe('MediaQueryContent', () => {
 
   describe('.beyondTablet', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/wide.html'];
+      Object.defineProperty(window, 'getComputedStyle', {
+        value: () => ({
+            getPropertyValue: (prop) => {
+                return 'wide';
+            }
+        })
+      });
+      mediaQueryContent = new MediaQueryContent();
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/wide.html`);
     });
 
     afterEach(() => {
       document.getElementById('media-query-content-wide').remove();
     });
 
-    it('returns true when is larger then tablets', () => {
+    it('returns true when it is larger than tablets', () => {
       const breakpoint = mediaQueryContent.breakpoint;
-
       expect(breakpoint).not.toBe('smartphone');
       expect(breakpoint).not.toBe('tablet');
       expect(mediaQueryContent.beyondTablet()).toBe(true);
@@ -148,7 +198,15 @@ describe('MediaQueryContent', () => {
 
   describe('.beyondMobile', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/tablet.html'];
+      Object.defineProperty(window, 'getComputedStyle', {
+        value: () => ({
+            getPropertyValue: (prop) => {
+                return 'tablet';
+            }
+        })
+      });
+      mediaQueryContent = new MediaQueryContent();
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/tablet.html`);
     });
 
     afterEach(() => {
