@@ -35,7 +35,7 @@ describe('MediaQueryContent', () => {
 
   describe('renderCSS', () => {
     beforeEach(() => {
-      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/renderCSS.html`)
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/renderCss.html`)
     });
 
     it('call renderCSS', () => {
