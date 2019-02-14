@@ -43,7 +43,7 @@
     "babel-preset-airbnb": "^3.2.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-minify": "^0.5.0",
-    "babelify": "^7.3.0",
+    "babelify": "^10.0.0",
     "browser-sync": "^2.26.3",
     "browserify": "^16.2.3",
     "cross-env": "^5.2.0",
