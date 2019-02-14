@@ -1,8 +1,16 @@
-import MediaQueryContent from '../src/dhalsim';
 import fs from 'fs';
+import MediaQueryContent from '../src/dhalsim';
+
+const getComputedStyleMock = (type) => {
+  Object.defineProperty(window, 'getComputedStyle', {
+    value: () => ({
+      getPropertyValue: () => type,
+    }),
+  });
+};
 
 describe('MediaQueryContent', () => {
-  const fixturesPath = `${__dirname}/fixtures`
+  const fixturesPath = `${__dirname}/fixtures`;
   let mediaQueryContent;
 
   describe('constructor', () => {
@@ -35,7 +43,7 @@ describe('MediaQueryContent', () => {
 
   describe('renderCSS', () => {
     beforeEach(() => {
-      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/renderCss.html`)
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/renderCss.html`);
     });
 
     it('call renderCSS', () => {
@@ -47,14 +55,7 @@ describe('MediaQueryContent', () => {
 
   describe('.breakpoint', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'getComputedStyle', {
-        value: () => ({
-            getPropertyValue: (prop) => {
-                return 'smartphone';
-            }
-        })
-      });
-
+      getComputedStyleMock('smartphone');
       document.body.innerHTML = fs.readFileSync(`${fixturesPath}/smartphone.html`);
       mediaQueryContent = new MediaQueryContent();
     });
@@ -64,7 +65,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns breakpoint value', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('smartphone');
     });
@@ -72,13 +73,7 @@ describe('MediaQueryContent', () => {
 
   describe('.isMobile', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'getComputedStyle', {
-        value: () => ({
-            getPropertyValue: (prop) => {
-                return 'smartphone';
-            }
-        })
-      });
+      getComputedStyleMock('smartphone');
       document.body.innerHTML = fs.readFileSync(`${fixturesPath}/smartphone.html`);
       mediaQueryContent = new MediaQueryContent();
     });
@@ -88,7 +83,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is smartphone', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('smartphone');
       expect(mediaQueryContent.isMobile()).toBe(true);
@@ -97,13 +92,7 @@ describe('MediaQueryContent', () => {
 
   describe('.isTablet', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'getComputedStyle', {
-        value: () => ({
-            getPropertyValue: (prop) => {
-                return 'tablet';
-            }
-        })
-      });
+      getComputedStyleMock('tablet');
       document.body.innerHTML = fs.readFileSync(`${fixturesPath}/tablet.html`);
       mediaQueryContent = new MediaQueryContent();
     });
@@ -113,7 +102,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is tablet', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('tablet');
       expect(mediaQueryContent.isTablet()).toBe(true);
@@ -122,13 +111,7 @@ describe('MediaQueryContent', () => {
 
   describe('.isDesktop', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'getComputedStyle', {
-        value: () => ({
-            getPropertyValue: (prop) => {
-                return 'desktop';
-            }
-        })
-      });
+      getComputedStyleMock('desktop');
       document.body.innerHTML = fs.readFileSync(`${fixturesPath}/desktop.html`);
       mediaQueryContent = new MediaQueryContent();
     });
@@ -138,7 +121,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is desktop', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('desktop');
       expect(mediaQueryContent.isDesktop()).toBe(true);
@@ -147,13 +130,7 @@ describe('MediaQueryContent', () => {
 
   describe('.isWide', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'getComputedStyle', {
-        value: () => ({
-            getPropertyValue: (prop) => {
-                return 'wide';
-            }
-        })
-      });
+      getComputedStyleMock('wide');
       document.body.innerHTML = fs.readFileSync(`${fixturesPath}/wide.html`);
       mediaQueryContent = new MediaQueryContent();
     });
@@ -163,7 +140,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is wide', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('wide');
       expect(mediaQueryContent.isWide()).toBe(true);
@@ -172,13 +149,7 @@ describe('MediaQueryContent', () => {
 
   describe('.beyondTablet', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'getComputedStyle', {
-        value: () => ({
-            getPropertyValue: (prop) => {
-                return 'wide';
-            }
-        })
-      });
+      getComputedStyleMock('wide');
       mediaQueryContent = new MediaQueryContent();
       document.body.innerHTML = fs.readFileSync(`${fixturesPath}/wide.html`);
     });
@@ -188,7 +159,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when it is larger than tablets', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
       expect(breakpoint).not.toBe('smartphone');
       expect(breakpoint).not.toBe('tablet');
       expect(mediaQueryContent.beyondTablet()).toBe(true);
@@ -197,13 +168,7 @@ describe('MediaQueryContent', () => {
 
   describe('.beyondMobile', () => {
     beforeEach(() => {
-      Object.defineProperty(window, 'getComputedStyle', {
-        value: () => ({
-            getPropertyValue: (prop) => {
-                return 'tablet';
-            }
-        })
-      });
+      getComputedStyleMock('tablet');
       mediaQueryContent = new MediaQueryContent();
       document.body.innerHTML = fs.readFileSync(`${fixturesPath}/tablet.html`);
     });
@@ -213,7 +178,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is larger then smartphone', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).not.toBe('smartphone');
       expect(breakpoint).toBe('tablet');
