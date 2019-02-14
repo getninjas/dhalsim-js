@@ -1,6 +1,16 @@
+import fs from 'fs';
 import MediaQueryContent from '../src/dhalsim';
 
+const getComputedStyleMock = (type) => {
+  Object.defineProperty(window, 'getComputedStyle', {
+    value: () => ({
+      getPropertyValue: () => type,
+    }),
+  });
+};
+
 describe('MediaQueryContent', () => {
+  const fixturesPath = `${__dirname}/fixtures`;
   let mediaQueryContent;
 
   describe('constructor', () => {
@@ -33,7 +43,7 @@ describe('MediaQueryContent', () => {
 
   describe('renderCSS', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/renderCss.html'];
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/renderCss.html`);
     });
 
     it('call renderCSS', () => {
@@ -45,7 +55,8 @@ describe('MediaQueryContent', () => {
 
   describe('.breakpoint', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/smartphone.html'];
+      getComputedStyleMock('smartphone');
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/smartphone.html`);
       mediaQueryContent = new MediaQueryContent();
     });
 
@@ -54,7 +65,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns breakpoint value', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('smartphone');
     });
@@ -62,7 +73,9 @@ describe('MediaQueryContent', () => {
 
   describe('.isMobile', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/smartphone.html'];
+      getComputedStyleMock('smartphone');
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/smartphone.html`);
+      mediaQueryContent = new MediaQueryContent();
     });
 
     afterEach(() => {
@@ -70,7 +83,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is smartphone', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('smartphone');
       expect(mediaQueryContent.isMobile()).toBe(true);
@@ -79,7 +92,9 @@ describe('MediaQueryContent', () => {
 
   describe('.isTablet', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/tablet.html'];
+      getComputedStyleMock('tablet');
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/tablet.html`);
+      mediaQueryContent = new MediaQueryContent();
     });
 
     afterEach(() => {
@@ -87,7 +102,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is tablet', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('tablet');
       expect(mediaQueryContent.isTablet()).toBe(true);
@@ -96,7 +111,9 @@ describe('MediaQueryContent', () => {
 
   describe('.isDesktop', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/desktop.html'];
+      getComputedStyleMock('desktop');
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/desktop.html`);
+      mediaQueryContent = new MediaQueryContent();
     });
 
     afterEach(() => {
@@ -104,7 +121,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is desktop', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('desktop');
       expect(mediaQueryContent.isDesktop()).toBe(true);
@@ -113,7 +130,9 @@ describe('MediaQueryContent', () => {
 
   describe('.isWide', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/wide.html'];
+      getComputedStyleMock('wide');
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/wide.html`);
+      mediaQueryContent = new MediaQueryContent();
     });
 
     afterEach(() => {
@@ -121,7 +140,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is wide', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('wide');
       expect(mediaQueryContent.isWide()).toBe(true);
@@ -130,16 +149,17 @@ describe('MediaQueryContent', () => {
 
   describe('.beyondTablet', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/wide.html'];
+      getComputedStyleMock('wide');
+      mediaQueryContent = new MediaQueryContent();
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/wide.html`);
     });
 
     afterEach(() => {
       document.getElementById('media-query-content-wide').remove();
     });
 
-    it('returns true when is larger then tablets', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
-
+    it('returns true when it is larger than tablets', () => {
+      const { breakpoint } = mediaQueryContent;
       expect(breakpoint).not.toBe('smartphone');
       expect(breakpoint).not.toBe('tablet');
       expect(mediaQueryContent.beyondTablet()).toBe(true);
@@ -148,7 +168,9 @@ describe('MediaQueryContent', () => {
 
   describe('.beyondMobile', () => {
     beforeEach(() => {
-      document.body.innerHTML = __html__['spec/fixtures/tablet.html'];
+      getComputedStyleMock('tablet');
+      mediaQueryContent = new MediaQueryContent();
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/tablet.html`);
     });
 
     afterEach(() => {
@@ -156,7 +178,7 @@ describe('MediaQueryContent', () => {
     });
 
     it('returns true when is larger then smartphone', () => {
-      const breakpoint = mediaQueryContent.breakpoint;
+      const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).not.toBe('smartphone');
       expect(breakpoint).toBe('tablet');
