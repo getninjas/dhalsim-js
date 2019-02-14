@@ -1,5 +1,5 @@
-import MediaQueryContent from '../src/dhalsim'
-import fs from 'fs'
+import MediaQueryContent from '../src/dhalsim';
+import fs from 'fs';
 
 describe('MediaQueryContent', () => {
   const fixturesPath = `${__dirname}/fixtures`
@@ -131,7 +131,6 @@ describe('MediaQueryContent', () => {
       });
       document.body.innerHTML = fs.readFileSync(`${fixturesPath}/desktop.html`);
       mediaQueryContent = new MediaQueryContent();
-
     });
 
     afterEach(() => {
