@@ -36,12 +36,14 @@
     "start": "npm run clear && FORCE_COLOR=1 npm run watch"
   },
   "devDependencies": {
-    "babel-cli": "^6.22.2",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-istanbul": "^5.1.4",
     "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-preset-airbnb": "^3.2.1",
-    "babel-preset-env": "^1.7.0",
+    "babel-preset-airbnb": "^3.2.0",
     "babel-preset-minify": "^0.5.0",
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.5",
@@ -51,13 +53,13 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-getninjas": "^4.0.3",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jasmine-jquery": "^1.0.0",
     "istanbul-instrumenter-loader": "^3.0.1",
-    "jasmine-core": "^3.4.0",
+    "jasmine-core": "^3.3.0",
+    "jest": "^23.6.0",
     "npm-run-all": "^4.1.5",
     "onchange": "^5.2.0",
-    "prismjs": "^1.16.0",
-    "jest": "^23.6.0",
-    "eslint-plugin-jasmine-jquery": "^1.0.0"
+    "prismjs": "^1.15.0"
   }
 }
