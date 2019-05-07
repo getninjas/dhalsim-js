@@ -1,6 +1,6 @@
 {
   "name": "dhalsim-js",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Media Query helper to check breakpoints via JavaScript",
   "main": "dist/dhalsim.js",
   "repository": {
