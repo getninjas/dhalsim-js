@@ -8,8 +8,6 @@ const defaultDhalsimOptions = {
 export default class Dhalsim {
   constructor(options) {
     Object.assign(this, defaultDhalsimOptions, options);
-
-    this.body = document.getElementsByTagName('body')[0];
   }
 
   init() {
@@ -51,8 +49,9 @@ export default class Dhalsim {
   }
 
   get breakpoint() {
+    const [body] = document.getElementsByTagName('body');
     this.breakpointValue = window
-      .getComputedStyle(this.body, ':before')
+      .getComputedStyle(body, ':before')
       .getPropertyValue('content')
       .replace(/"/g, '');
 
