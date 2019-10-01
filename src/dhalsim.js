@@ -9,7 +9,9 @@ export default class Dhalsim {
   constructor(options) {
     Object.assign(this, defaultDhalsimOptions, options);
 
-    this.body = document.getElementsByTagName('body')[0];
+    const [body] = document.getElementsByTagName('body');
+
+    this.body = body;
   }
 
   init() {
