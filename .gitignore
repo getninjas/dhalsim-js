@@ -17,3 +17,6 @@ CVS
 # application
 build/*.js
 coverage
+
+# stryker temp files
+.stryker-tmp
