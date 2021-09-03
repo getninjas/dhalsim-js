@@ -1,5 +1,6 @@
 import fs from 'fs';
 import MediaQueryContent from '../src/dhalsim';
+import { pause } from 'browser-sync';
 
 const getComputedStyleMock = (type) => {
   Object.defineProperty(window, 'getComputedStyle', {
@@ -28,6 +29,7 @@ describe('MediaQueryContent', () => {
       expect(mediaQueryContent.tablet).toBe(options.tablet);
       expect(mediaQueryContent.desktop).toBe(options.desktop);
       expect(mediaQueryContent.wide).toBe(options.wide);
+      expect(mediaQueryContent.body).toBeTruthy();
     });
   });
 
@@ -68,6 +70,31 @@ describe('MediaQueryContent', () => {
       const { breakpoint } = mediaQueryContent;
 
       expect(breakpoint).toBe('smartphone');
+    });
+  });
+
+  describe('.isWhat???', () => {
+    beforeEach(() => {
+      getComputedStyleMock('batata');
+      document.body.innerHTML = fs.readFileSync(`${fixturesPath}/smartphone.html`);
+      mediaQueryContent = new MediaQueryContent();
+    });
+
+    afterEach(() => {
+      document.getElementById('media-query-content-smartphone').remove();
+    });
+
+    it('dont return true when is not smartphone', () => {
+      const { breakpoint } = mediaQueryContent;
+  
+      expect(breakpoint).not.toBe('smartphone');
+      expect(breakpoint).not.toBe('tablet');
+      expect(breakpoint).not.toBe('desktop');
+      expect(breakpoint).not.toBe('wide');
+      expect(mediaQueryContent.isMobile()).not.toBe(true);
+      expect(mediaQueryContent.isTablet()).not.toBe(true);
+      expect(mediaQueryContent.isDesktop()).not.toBe(true);
+      expect(mediaQueryContent.isWide()).not.toBe(true);
     });
   });
 
